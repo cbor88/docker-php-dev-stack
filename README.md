@@ -8,7 +8,6 @@ Dockerized PHP development stack [![Build Status](https://travis-ci.org/lagun4ik
  * [Installed php modules](#installed-php-modules)
  * [Composer](https://getcomposer.org/)
 * [MariaDB 3.2](https://mariadb.org/)
-* [MongoDB 3.2](http://www.mongodb.org/)
 * [Memcached 1.4.25](http://memcached.org/)
 * [Redis 3.0.6](http://redis.io/)
 
@@ -76,12 +75,9 @@ docker-compose -p php-dev-stack logs nginx
 ```
 
 ## Connect to DB
-Use `mongo` or `mysql` as a host for the database connection.
+Use `mysql` as a host for the database connection.
 ```php
 $dbh = new PDO('mysql:host=mysql;dbname=' . $db, $user, $pass);
-```
-```php
-$manager = new MongoDB\Driver\Manager("mongodb://mongo");
 ```
 
 ## Memcached and Redis docker memory limit

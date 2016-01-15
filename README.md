@@ -1,8 +1,6 @@
 Dockerized PHP development stack [![Build Status](https://travis-ci.org/lagun4ik/docker-php-dev-stack.svg)](https://travis-ci.org/lagun4ik/docker-php-dev-stack)
 --------------------------
 
-## Include
-
 * [Nginx 1.9.9](http://nginx.org/)
  * [ngx_pagespeed](https://github.com/pagespeed/ngx_pagespeed)
  * [nginx-upload-progress-module](https://github.com/masterzen/nginx-upload-progress-module)
@@ -24,6 +22,13 @@ Dockerized PHP development stack [![Build Status](https://travis-ci.org/lagun4ik
 ```bash
 docker-compose -p php-dev-stack up -d
 ```
+
+## Utilities
+Install phpMyAdmin, phpMemcachedAdmin, pagespeedAdmin, phpRedisAdmin
+```bash
+./setup-utilities.sh
+```
+Go to `http://you_server_ip/`
 
 ## Show services
 
@@ -67,3 +72,75 @@ docker-compose -p php-dev-stack logs
 # specific service
 docker-compose -p php-dev-stack logs nginx
 ```
+<<<<<<< HEAD
+=======
+
+## Connect to DB
+Use `mongo` or `mysql` as a host for the database connection.
+```php
+$dbh = new PDO('mysql:host=mysql;dbname=' . $db, $user, $pass);
+```
+```php
+$manager = new MongoDB\Driver\Manager("mongodb://mongo");
+```
+
+## Memcached and Redis docker memory limit
+
+Change the value `mem_limit` in the file `docker-compose.yml`.
+
+## Installed php modules
+```
+bcmath
+bz2
+Core
+ctype
+curl
+date
+dom
+exif
+fileinfo
+filter
+gd
+gettext
+hash
+iconv
+intl
+json
+libxml
+mbstring
+mcrypt
+memcached
+mongodb
+mysqli
+mysqlnd
+openssl
+pcntl
+pcre
+PDO
+pdo_mysql
+pdo_sqlite
+Phar
+posix
+readline
+recode
+redis
+Reflection
+session
+SimpleXML
+sockets
+SPL
+sqlite3
+standard
+tokenizer
+xml
+xmlreader
+xmlwriter
+Zend OPcache
+zip
+zlib
+Zend OPcache
+```
+
+##Thanks
+@ProPheT777
+>>>>>>> origin/master

@@ -4,7 +4,6 @@ data:
     container_name: 'php-dev-stack_data'
     volumes:
       - './data/www/:/var/www/'
-      - './data/mysql/:/var/lib/mysql/'
       - './data/mongo/:/data/db/'
       - './data/nginx/:/etc/nginx/sites-enabled/'
       - './data/ssl/:/etc/nginx/ssl/'
@@ -24,7 +23,6 @@ php-fpm:
     image: 'lagun4ik/docker-php7-fpm'
     restart: always
     links:
-        - 'mysql'
         - 'memcached'
         - 'mongo'
         - 'redis'
@@ -40,16 +38,6 @@ mongo:
         - 'data'
     expose:
       - "27017"
-
-mysql:
-    image: mariadb:10.1
-    restart: 'always'
-    volumes_from:
-        - 'data'
-    expose:
-      - "3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: password
 
 memcached:
     image: memcached:1.4.25

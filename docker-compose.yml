@@ -7,8 +7,8 @@ data:
       - './data/mongo/:/data/db/'
       - './data/nginx/:/etc/nginx/sites-enabled/'
       - './data/ssl/:/etc/nginx/ssl/'
-      - ./letsencrypt/live/:/etc/letsencrypt/live'
-      - ./letsencrypt/domains.json:/domains.json'
+      - './letsencrypt/live/:/etc/letsencrypt/live'
+      - './letsencrypt/domains.json:/domains.json'
 
 nginx:
     image: 'lagun4ik/docker-nginx-pagespeed'
